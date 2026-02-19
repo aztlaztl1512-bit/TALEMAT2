@@ -1,206 +1,215 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>شرح المهارات اللفظية - أ. عبدالعزيز الفيفي</title>
-    <link href="https://fonts.googleapis.com" rel="stylesheet">
-    <style>
-        :root {
-            --primary-bg: #f8f9fa;
-            --card-odd: #fff9f0;
-            --card-relation: #f0faff;
-            --text-color: #2d3436;
-            --accent-color: #6c5ce7;
-        }
+<meta charset="UTF-8">
+<style>
+    :root {
+        --primary-color: #16a085;
+        --accent-color: #d35400;
+        --instruction-bg: #f0fdfa;
+        --bg-soft: #f4f7f6;
+        --text-dark: #2c3e50;
+    }
 
-        body {
-            font-family: 'Tajawal', sans-serif;
-            background-color: var(--primary-bg);
-            color: var(--text-color);
-            line-height: 1.6;
-            margin: 0;
-            padding: 20px;
-        }
+    body { background-color: #dfe6e9; padding: 20px; margin: 0; line-height: 1.6; }
 
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
+    .main-container {
+        font-family: 'Segoe UI', Tahoma, sans-serif;
+        max-width: 900px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 30px;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
 
-        .header {
-            text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(135deg, #6c5ce7, #a29bfe);
-            color: white;
-            border-radius: 30px;
-            margin-bottom: 40px;
-            box-shadow: 0 10px 25px rgba(108, 92, 231, 0.3);
-        }
+    .hero-header {
+        background: linear-gradient(135deg, #16a085, #2c3e50);
+        color: white;
+        text-align: center;
+        padding: 45px 20px;
+    }
 
-        .header h1 { margin: 0; font-size: 2.2rem; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
-        .header p { opacity: 0.95; font-size: 1.1rem; margin-top: 10px; }
+    .hero-header h1 { margin: 0; font-size: 2.2em; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
+    .hero-header p { margin-top: 10px; opacity: 0.9; font-size: 1.1em; }
 
-        .card {
-            background: white;
-            border-radius: 25px;
-            padding: 30px;
-            margin-bottom: 35px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.04);
-            border-right: 12px solid #ddd;
-        }
+    .content-padding { padding: 35px; }
 
-        .odd-one { border-right-color: #fd7e14; background-color: var(--card-odd); }
-        .relation { border-right-color: #15aabf; background-color: var(--card-relation); }
+    /* قسم التعليمات */
+    .instruction-box {
+        background: var(--instruction-bg);
+        border: 2px solid var(--primary-color);
+        border-radius: 20px;
+        padding: 25px;
+        margin-bottom: 40px;
+    }
 
-        h2 { display: flex; align-items: center; gap: 12px; color: #2d3436; margin-top: 0; }
+    .instruction-box h2 { color: var(--primary-color); margin-top: 0; font-size: 1.5em; border-bottom: 2px solid var(--primary-color); display: inline-block; padding-bottom: 5px; }
+    
+    .step-item { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px; font-size: 1.05em; color: #444; }
+    .step-num { background: var(--primary-color); color: white; border-radius: 50%; width: 24px; height: 24px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-weight: bold; font-size: 0.8em; }
 
-        .icon {
-            font-size: 1.6rem;
-            background: white;
-            padding: 5px 12px;
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
+    /* شبكة البطاقات */
+    .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 20px;
+    }
 
-        .explanation {
-            background: rgba(255, 255, 255, 0.7);
-            padding: 18px;
-            border-radius: 18px;
-            margin: 20px 0;
-            border: 1px solid rgba(0,0,0,0.05);
-        }
+    .relation-card {
+        border: 2px solid #f0f0f0;
+        border-radius: 20px;
+        overflow: hidden;
+        transition: 0.3s;
+        display: flex;
+        flex-direction: column;
+    }
 
-        .example-box {
-            background: #fff;
-            padding: 25px;
-            border-radius: 20px;
-            border: 2px dashed #cbd5e0;
-        }
+    .relation-card:hover { border-color: var(--primary-color); transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
 
-        .options {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin: 15px 0;
-        }
+    .relation-title {
+        background: var(--bg-soft);
+        padding: 12px 20px;
+        font-size: 1.1em;
+        font-weight: bold;
+        color: var(--primary-color);
+        border-bottom: 1px solid #eee;
+    }
 
-        .option {
-            background: #f1f2f6;
-            padding: 10px 25px;
-            border-radius: 50px;
-            font-weight: bold;
-            border: 1px solid #dfe4ea;
-        }
+    .example-line {
+        padding: 15px;
+        font-size: 1.3em;
+        text-align: center;
+        color: var(--text-dark);
+        background: #fff;
+        font-weight: bold;
+    }
 
-        .correct { background: #d1fae5 !important; color: #065f46; border-color: #34d399; }
-        .wrong { background: #fee2e2; color: #991b1b; text-decoration: line-through; }
+    .feedback-zone {
+        background: #fdfdfd;
+        padding: 15px;
+        border-top: 1px dashed #ddd;
+        flex-grow: 1;
+    }
 
-        .badge {
-            display: inline-block;
-            padding: 6px 16px;
-            background: #2d3436;
-            color: white;
-            border-radius: 10px;
-            font-size: 0.9rem;
-            margin-bottom: 12px;
-        }
+    .feedback-tag {
+        background: var(--accent-color);
+        color: white;
+        padding: 2px 10px;
+        border-radius: 6px;
+        font-size: 0.8em;
+        font-weight: bold;
+        display: inline-block;
+        margin-bottom: 8px;
+    }
 
-        .pro-tip {
-            background: #fff9db;
-            padding: 15px;
-            border-radius: 12px;
-            border-right: 6px solid #fcc419;
-            margin-top: 20px;
-            font-weight: 500;
-        }
+    .feedback-text { color: #666; font-size: 0.9em; line-height: 1.6; }
 
-        footer {
-            margin-top: 60px;
-            padding: 30px 20px;
-            text-align: center;
-            border-top: 2px dashed #a29bfe;
-        }
+    .footer {
+        background: #2c3e50;
+        color: white;
+        padding: 30px;
+        text-align: center;
+        margin-top: 40px;
+    }
 
-        .footer-card {
-            background: white;
-            display: inline-block;
-            padding: 20px 40px;
-            border-radius: 50px;
-            box-shadow: 0 10px 30px rgba(108, 92, 231, 0.15);
-        }
-    </style>
+    .name-tag { font-size: 1.4em; font-weight: bold; }
+    .school-tag { color: #1abc9c; margin-top: 5px; }
+
+    .highlight-red { color: #e74c3c; text-decoration: line-through; }
+    .highlight-green { color: #27ae60; border-bottom: 2px solid; }
+
+    @media (max-width: 600px) {
+        .cards-grid { grid-template-columns: 1fr; }
+    }
+</style>
 </head>
 <body>
 
-<div class="container">
-    <div class="header">
-        <h1>🚀 دليلك الذهبي للقسم اللفظي</h1>
-        <p>بإشراف وتوجيه معلمكم المحب.. طريقكم للـ 100% يبدأ من هنا!</p>
+<div class="main-container">
+    <div class="hero-header">
+        <h1>🎯 المفردة الشاذة والارتباط</h1>
+        <p>إعداد أ / عبدالعزيز الفيفي - ثانوية الأمير عبدالمجيد</p>
     </div>
 
-    <!-- المفردة الشاذة -->
-    <div class="card odd-one">
-        <h2><span class="icon">🔍</span> مهارة المفردة الشاذة</h2>
-        <div class="explanation">
-            <strong>قاعدة الحل:</strong> ابحث عن الرابط المشترك بين ثلاث خيارات، والكلمة التي لا ينطبق عليها هذا الرابط هي "الشاذة".
+    <div class="content-padding">
+        
+        <div class="instruction-box">
+            <h2>🚀 تكتيكات الحل الذكي</h2>
+            <div class="step-item"><div class="step-num">١</div> <b>المفردة الشاذة:</b> ابحث عن الرابط الذي يجمع ٣ كلمات واستبعد الرابعة.</div>
+            <div class="step-item"><div class="step-num">٢</div> <b>الارتباط والاختلاف:</b> حدد الكلمة التي تتناغم مع رأس السؤال في "الفئة" أو "الوظيفة".</div>
+            <div class="step-item"><div class="step-num">٣</div> انتبه للتصنيفات الدقيقة (برمائيات، كواكب، عواصم، أدوات).</div>
         </div>
 
-        <div class="example-box">
-            <span class="badge">مثال تطبيق</span>
-            <div style="font-weight: bold; margin-bottom: 10px;">حدد المفردة الشاذة فيما يلي:</div>
-            <div class="options">
-                <span class="option wrong">القمح</span>
-                <span class="option wrong">الأرز</span>
-                <span class="option correct">التفاح</span>
-                <span class="option wrong">الشعير</span>
+        <div class="cards-grid">
+            
+            <!-- 1 -->
+            <div class="relation-card">
+                <div class="relation-title">١. المفردة الشاذة (الفئات) 🌳</div>
+                <div class="example-line">جرجير - خس - فجل - <span class="highlight-red">تفاح</span></div>
+                <div class="feedback-zone">
+                    <span class="feedback-tag">تحليل</span>
+                    <div class="feedback-text">الجرجير والخس والفجل من <b>الورقيات</b>، بينما التفاح من <b>الفواكه</b>، لذا هو المفردة الشاذة.</div>
+                </div>
             </div>
-            <p><strong>السبب:</strong> جميع الكلمات (حبوب) ما عدا <b>التفاح</b> فهو من (الفواكه).</p>
-        </div>
 
-        <div class="pro-tip">
-            💡 <b>تلميح المعلم:</b> لا تستعجل بالاختيار، أحياناً تكون العلاقة دقيقة جداً (مثل: أعضاء زوجية مقابل أعضاء فردية).
+            <!-- 2 -->
+            <div class="relation-card">
+                <div class="relation-title">٢. المفردة الشاذة (الجغرافيا) 🗺️</div>
+                <div class="example-line">القاهرة - الرياض - المنامة - <span class="highlight-red">جدة</span></div>
+                <div class="feedback-zone">
+                    <span class="feedback-tag">تحليل</span>
+                    <div class="feedback-text">الثلاث الأولى هي <b>عواصم</b> لدول، بينما جدة مدينة اقتصادية وليست عاصمة.</div>
+                </div>
+            </div>
+
+            <!-- 3 -->
+            <div class="relation-card">
+                <div class="relation-title">٣. سؤال الارتباط (رأس السؤال: أسد) 🦁</div>
+                <div class="example-line">صقر - فهد - <span class="highlight-green">نمر</span> - تمساح</div>
+                <div class="feedback-zone">
+                    <span class="feedback-tag">تحليل</span>
+                    <div class="feedback-text">الارتباط هنا هو "السباع" أو <b>الفصيلة القططية</b>. الأسد يرتبط بالنمر لأنهما من نفس الفصيلة.</div>
+                </div>
+            </div>
+
+            <!-- 4 -->
+            <div class="relation-card">
+                <div class="relation-title">٤. الاختلاف (الأدوات) ✒️</div>
+                <div class="example-line">مشرط - مبرد - <span class="highlight-red">قلم</span> - إزميل</div>
+                <div class="feedback-zone">
+                    <span class="feedback-tag">تحليل</span>
+                    <div class="feedback-text">المشرط والمبرد والإزميل <b>أدوات حادة</b> للنحت أو القطع، أما القلم فهو أداة كتابة.</div>
+                </div>
+            </div>
+
+            <!-- 5 -->
+            <div class="relation-card">
+                <div class="relation-title">٥. الارتباط (رأس السؤال: مكة) 🕋</div>
+                <div class="example-line">القدس - دمشق - <span class="highlight-green">المدينة</span> - بغداد</div>
+                <div class="feedback-zone">
+                    <span class="feedback-tag">تحليل</span>
+                    <div class="feedback-text">العلاقة هي <b>القدسية الدينية</b> ومكانة الحرمين. مكة ترتبط ارتباطاً وثيقاً بالمدينة المنورة.</div>
+                </div>
+            </div>
+
+            <!-- 6 -->
+            <div class="relation-card">
+                <div class="relation-title">٦. المفردة الشاذة (زمنية) ⏳</div>
+                <div class="example-line">رمضان - ذو الحجة - <span class="highlight-red">الجمعة</span> - محرم</div>
+                <div class="feedback-zone">
+                    <span class="feedback-tag">تحليل</span>
+                    <div class="feedback-text">رمضان وذو الحجة ومحرم هي <b>شهور هجرية</b>، بينما الجمعة هو يوم من أيام الأسبوع.</div>
+                </div>
+            </div>
+
         </div>
     </div>
 
-    <!-- الارتباط والاختلاف -->
-    <div class="card relation">
-        <h2><span class="icon">🔗</span> مهارة الارتباط والاختلاف</h2>
-        <div class="explanation">
-            <strong>قاعدة الحل:</strong> اربط كلمة رأس السؤال بأقوى كلمة موجودة في الخيارات من حيث الوظيفة أو المكان أو النوع.
-        </div>
-
-        <div class="example-box">
-            <span class="badge">مثال تطبيق</span>
-            <div style="font-size: 1.2rem; margin-bottom: 10px;">الكلمة الأساسية: <b>( غابة )</b></div>
-            <div class="options">
-                <span class="option correct">أشجار</span>
-                <span class="option">طريق</span>
-                <span class="option">أسد</span>
-                <span class="option">صياد</span>
-            </div>
-            <p><strong>السبب:</strong> <b>الأشجار</b> هي المكون الأساسي والجوهري للغابة، وبدونها لا تسمى غابة.</p>
-        </div>
-
-        <div class="pro-tip">
-            💡 <b>تلميح المعلم:</b> اختر العلاقة "الأقوى" وليس "الممكنة" فقط.
-        </div>
+    <div class="footer">
+        <div class="name-tag">أ / عبدالعزيز الفيفي</div>
+        <div class="school-tag">ثانوية الأمير عبدالمجيد 🎓 شعلة الإبداع</div>
     </div>
-
-    <!-- قسم الحقوق -->
-    <footer>
-        <div class="footer-card">
-            <p style="margin: 0; font-size: 1.3rem; color: #2d3436; font-weight: 800;">
-                إعداد المعلم: 👨‍🏫 <span style="color: #6c5ce7;">أ / عبدالعزيز الفيفي</span> ✨
-            </p>
-            <p style="margin: 8px 0 0 0; font-size: 1.1rem; color: #636e72; font-weight: bold;">
-                🏫 ثانوية الأمير عبدالمجيد
-            </p>
-            <div style="margin-top: 15px; font-size: 1.8rem; letter-spacing: 10px;">
-                
-            </div>
-        </div>
-    </footer>
 </div>
 
 </body>
